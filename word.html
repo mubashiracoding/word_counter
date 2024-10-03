@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+background-color: lightgreen;
+}
+.counter{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+.charcounter{
+  width: auto;
+  height: 70px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+  padding: 10px;
+}
+.wordscounter{
+  width: auto;
+  height: 70px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+  padding: 10px;
+  margin-left: 20px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="counter">
+      <div class="charcounter">
+        <span>characters</span>
+        <div id="count">0</div>
+      </div>
+      <div class="wordscounter">
+        <span>words</span>
+        <div id="Count">0</div>
+      </div>
+    </div>
+<textarea  id="content" cols="30" rows="10"> </textarea>
+  </div>
+  <script>
+    const textarea=document.getElementById('content');
+    const charcount=document.getElementById('count');
+    const wordcount=document.getElementById('Count');
+    textarea.oninput=()=>{
+      let characters =textarea.value;
+      charcount.textContent=characters.replace(/\s/g,'').length;
+      let words=textarea.value.split('').filter((item)=>{
+        return  item!='';
+      });
+      wordcount.textContent=words.length;
+    }
+
+
+  </script>
+</body>
+</html>
